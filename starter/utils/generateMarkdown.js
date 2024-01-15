@@ -47,7 +47,7 @@ ${data.installation}
 ${data.usage}
 
 ## License
-This application is covered under the license of ${data.license} ${licenseKey}
+${data.license} ${licenseKey}
 
 ## Contributing
 ${contributorsString}
@@ -56,7 +56,7 @@ ${contributorsString}
 ${data.test}
 
 ## Questions
-${data.email}
+[${data.github}](https://github.com/${data.github})
     
   
   `;
