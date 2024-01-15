@@ -32,9 +32,9 @@ const questions = [
     },
     {
         type: 'list',
-        message: 'Please choose a licence for your project?',
-        name: 'licence',
-        choices: ["license1", "license2", "license3"],
+        message: 'Please choose a license for your project?',
+        name: 'license',
+        choices: ["ISC", "MIT", "GNU", "Apache", "Eclipse", "IBM"],
     },
     {
         type: 'input',
@@ -56,6 +56,9 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        err ? console.error(err) : console.log('Success!')
+    })
    
 }
 
@@ -64,7 +67,7 @@ function init() {
     inquirer
         .prompt(questions)
         .then((response) => {
-            response.length === questions.length? console.log('Success') : console.log('You forgot to complete some sections!');
+            Object.keys(response).length === questions.length ? console.log('Success') : console.log('You forgot to complete some sections!');
             const myAnswer = generateMarkdown(response);
             writeToFile('sample.md', myAnswer);
         })
