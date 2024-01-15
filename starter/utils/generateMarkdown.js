@@ -10,27 +10,35 @@ function generateMarkdown(data) {
         IBM: "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)"
     }
 
+    // conditional statement to check chosen license badge
     let licenseKey;
-
         if (`${data.license}` in licenseBadge) {
             licenseKey = licenseBadge[`${data.license}`];
             
         }
-      
+    
+    // codes to display list of contributors
     const contributors = data.contributors.split(",");
   let contributorsString = "";
   contributors.forEach((contributor) => {
-    contributorsString += contributor.trim() + "\n";
+    contributorsString += "* " + contributor.trim() + "\n";
+  });
+    
+    // codes to display Table of content
+    const tableofContent = data.tableofcontent.split(",");
+  let tableofContentString = "";
+  tableofContent.forEach((content) => {
+    tableofContentString += "* " + content.trim() + "\n";
   });
 
 
-    return `# ${data.title}
+    return `# ${data.title} ${licenseKey}
 
 ## Description
 ${data.description}
 
 ## Table of Contents
-${data.tableofcontent}
+${tableofContentString}
 
 ## Installation
 ${data.installation}
