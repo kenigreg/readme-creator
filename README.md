@@ -24,4 +24,4 @@ npm install inquirer@^8.0.0
 ```
 
 ## Walkthrough video
-The walkthrough video, demonstating how to use the application, can be found [here](https://duckduckgo.com).
+The walkthrough video, demonstating how to use the application, can be found [here](https://drive.google.com/file/d/138J0Qtd6leI5yQQp2wx5wkbEWD0fTw7J/view?usp=sharing).

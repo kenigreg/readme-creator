@@ -1,8 +1,6 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
 
-    console.log(data.github);
-
     const licenseBadge = {
         ISC: "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)",
         MIT: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
@@ -16,7 +14,6 @@ function generateMarkdown(data) {
     let licenseKey;
         if (`${data.license}` in licenseBadge) {
             licenseKey = licenseBadge[`${data.license}`];
-            
         }
     
     // codes to display list of contributors
@@ -29,7 +26,7 @@ function generateMarkdown(data) {
     // codes to display Table of content
     const tableofContent = data.tableofcontent.split(",");
     let tableofContentString = "";
-  tableofContent.forEach((content) => {
+    tableofContent.forEach((content) => {
       tableofContentString += "* " + "[" + content.trim() + "]" + "(" + "#" + content.trim().toLowerCase() + ")" + "\n";
   });
     
@@ -52,7 +49,7 @@ function generateMarkdown(data) {
 ${data.description}
 
 ## Table of Contents
- ${tableofContentString}
+${tableofContentString}
 
 ## Installation
 ${data.installation}
