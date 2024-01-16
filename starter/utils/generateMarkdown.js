@@ -1,6 +1,8 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
 
+    console.log(data.github);
+
     const licenseBadge = {
         ISC: "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)",
         MIT: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
@@ -30,6 +32,18 @@ function generateMarkdown(data) {
   tableofContent.forEach((content) => {
       tableofContentString += "* " + "[" + content.trim() + "]" + "(" + "#" + content.trim().toLowerCase() + ")" + "\n";
   });
+    
+    // code to validate email address provided for Questions section
+    let questionSection;
+    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const emailProvided = data.github;
+    if (emailProvided.match(regex)) {
+        questionSection = "If you have further questions about the application or to contribute, please send email to " + "<" + emailProvided + ">";
+    }
+    else {
+        questionSection =
+           "For further contribution, please visit my github page at " + "[" + emailProvided + "]" + "(" + "https://github.com/" + emailProvided + ")"
+    };
 
 
     return `# ${data.title} ${licenseKey}
@@ -56,7 +70,7 @@ ${contributorsString}
 ${data.test}
 
 ## Questions
-[${data.github}](https://github.com/${data.github})
+${questionSection}
     
   
   `;
