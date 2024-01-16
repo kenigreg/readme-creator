@@ -26,9 +26,9 @@ function generateMarkdown(data) {
     
     // codes to display Table of content
     const tableofContent = data.tableofcontent.split(",");
-  let tableofContentString = "";
+    let tableofContentString = "";
   tableofContent.forEach((content) => {
-    tableofContentString += "* " + content.trim() + "\n";
+      tableofContentString += "* " + "[" + content.trim() + "]" + "(" + "#" + content.trim().toLowerCase() + ")" + "\n";
   });
 
 
@@ -38,7 +38,7 @@ function generateMarkdown(data) {
 ${data.description}
 
 ## Table of Contents
-${tableofContentString}
+ ${tableofContentString}
 
 ## Installation
 ${data.installation}
@@ -47,7 +47,7 @@ ${data.installation}
 ${data.usage}
 
 ## License
-${data.license} ${licenseKey}
+This application is covered under the license of ${data.license} ${licenseKey}
 
 ## Contributing
 ${contributorsString}
