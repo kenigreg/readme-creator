@@ -64,6 +64,8 @@ ${data.usage}
 This application is covered under the license of ${data.license} ${licenseKey}
 
 ## Contributing
+See the contributors to the project below:
+ 
 ${contributorsString}
 
 ## Tests
